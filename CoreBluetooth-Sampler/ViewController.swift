@@ -29,6 +29,12 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
         centralManager.scanForPeripheralsWithServices(nil, options: nil)
     }
     
+    func stopScan() {
+        if self.centralManager.isScanning {
+            self.centralManager.stopScan()
+        }
+    }
+    
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         print("peripherial: \(peripheral)")
     }
