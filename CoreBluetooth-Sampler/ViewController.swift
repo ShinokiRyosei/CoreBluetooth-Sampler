@@ -26,7 +26,17 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
     }
     
     @IBAction func selectStartScan() {
-        centralManager.scanForPeripheralsWithServices(nil, options: nil)
+        
+    }
+    
+    func startScan() {
+        if !self.centralManager.isScanning {
+            centralManager.scanForPeripheralsWithServices(nil, options: nil)
+        }
+    }
+    
+    func connectPeripheral() {
+        self.centralManager.connectPeripheral(peripheral, options: nil)
     }
     
     func stopScan() {
