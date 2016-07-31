@@ -44,6 +44,14 @@ class ViewController: UIViewController, CBCentralManagerDelegate {
             self.centralManager.stopScan()
         }
     }
+    //: MARK: Delegate
+    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+        print("connected!")
+    }
+    
+    func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+        print("failed")
+    }
     
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         print("peripherial: \(peripheral)")
